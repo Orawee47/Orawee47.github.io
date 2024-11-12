@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <style>
+        body {
+            font-family : monospace; font-size:x-large;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: center;
+            flex-direction: center;
+            align-items: flex-start;
+        }
+        h1 {
+            text-align: center; 
+            margin-top: 10px;
+            font-size: 2em;
+            color: #2d2d2d;
+        }
+        h2 {
+            text-align: center; 
+            color: #3e291c;
+            margin-bottom: 10px;
+        }
+        .detail {
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: left; 
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: left; 
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        h3 {
+            color: #89553d;
+        }
+        .profile-image {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image img {
+            width: 600px;
+            height: 400px;
+        }
+        .container {
+            display: flex;
+            justify-content: flex-end; 
+        }
+
+        .detail-more {
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: left; 
+            position: absolute; 
+            right: auto; 
+            top: 685px; 
+        }
+
+
+        .skill {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: #ddd;
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+        }
+
+        progress[value] {
+            background-color: #4CAF50;
+            border-radius: 10px;
+        }
+        .single-line-box {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-family: monospace;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            width: fit-content;
+            margin: 20px;
+            gap: 8px; 
+        }
+        .single-line-box a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: medium;
+        }
+
+
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h2>About me</h2>
+    <h1>Orawee Thapar-sa</h1>
+
+    <div class="profile-image">
+        <img src="c:\Users\orawee\Downloads\462557912_506599555712797_7941930078623216218_n.jpg" alt="Sample Image">
+    </div>
+
+    <div>
+        <h3>Carrer Goals : </h3>
+        <p>"I am committed to utilizing my skills in Back-end development to create efficient and secure software systems, with a focus on learning new technologies and collaborating with teams to develop solutions that quickly meet the needs of users and the market."</p>
+    </div>
+
+    <div class="detail">
+        <div class="contact-info">
+            <h3>Contact</h3>
+            <p>Email: <a href="mailto:oraweethapsa@gmail.com">oraweethapsa@gmail.com</a></p>
+            <p>Phone Number: 061-3640178</p>
+            <p>Line ID: paw6_9_47</p>
+            <p>Address: 49/50 Ramkhamhaeng 90, Saphan Sung, Bangkok</p>
+        </div>
+
+        <h3>Language Skills</h3>
+        <canvas id="languageChart" width="300" height="100"></canvas>
+        <div>
+            <h3>Education</h3>
+            <p>University of Phayao</p>
+            <p>Computer Science from 2023 to now.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var ctx = document.getElementById('languageChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Thai', 'English', 'Chinese'], 
+                    datasets: [{
+                        label: "Language Skills",
+                        data: [100, 50, 53], 
+                        backgroundColor: [
+                            'rgba(165, 107, 82, 0.8)', 
+                            'rgba(165, 107, 82, 0.6)', 
+                            'rgba(165, 107, 82, 0.6)' 
+                        ],
+                        borderColor: [
+                            'rgba(165, 107, 82, 1)',
+                            'rgba(165, 107, 82, 1)',
+                            'rgba(165, 107, 82, 1)'
+                        ],
+                        borderWidth: 0.05,
+                        barThickness: 20, 
+                        maxBarThickness: 30 
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', 
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100 
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Language Skills'
+                        },
+                        legend: {
+                            display: false 
+                        },
+                        tooltip: {
+                            mode: 'index'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <div class="container">
+        <div class="detail-more">
+            <h3>Programming Skills</h3>
+            <canvas id="programmingSkillsChart" width="300" height="100"></canvas>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var ctx = document.getElementById('programmingSkillsChart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Python', 'Java'], 
+                            datasets: [{
+                                label: "Programming Skills",
+                                data: [85, 78], 
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.8)', 
+                                    'rgba(255, 159, 64, 0.8)', 
+                                    'rgba(255, 205, 86, 0.8)',
+                                    'rgba(75, 192, 192, 0.8)',
+                                    'rgba(153, 102, 255, 0.8)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 205, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)'
+                                ],
+                                borderWidth: 1,
+                                barThickness: 20, 
+                                maxBarThickness: 30 
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y', 
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    max: 100 
+                                }
+                            },
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Programming Skills' 
+                                },
+                                legend: {
+                                    display: false 
+                                },
+                                tooltip: {
+                                    mode: 'index' 
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
+
+            <h3>Soft Skills</h3>
+            <p> - Team Collaboration</p>
+            <p> - Problem-Solving</p>
+            <p> - Adaptability</p>
+            <p> - Effective Communication</p>
+
+            <div class="single-line-box">
+                <span><h4>Get to Know Me Better :</></span>
+                <a href="https://github.com/Orawee47" target="_blank">Click here</a>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
